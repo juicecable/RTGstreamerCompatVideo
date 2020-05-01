@@ -235,7 +235,8 @@ while True:
             out,err=proc.communicate(timeout=0.001)
         except TimeoutExpired:
             if oops:
-                out=''
+                out=b''
+                oops=False
             elif len(out)>1:
                 out=out.decode()
                 lines=out.splitlines()
